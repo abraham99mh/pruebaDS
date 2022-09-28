@@ -9,9 +9,6 @@ var sesion = true
 
 const alumnos = ["Abraham", "Stephano", "Tom", "Jerry"];
 
-
-
-
 const jsx = (
   <>
     {sesion === true ? (
