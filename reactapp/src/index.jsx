@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Alumno from './componets/Alumno';
+import Lista from './componets/Lista';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -10,9 +10,7 @@ const jsx = (
   <>
     {sesion === true ? (
       <>
-        <Alumno />
-        <Alumno />
-        <Alumno />
+        <Lista />
       </>
     ) : (
       <h2>Primero inicia sesion</h2>
