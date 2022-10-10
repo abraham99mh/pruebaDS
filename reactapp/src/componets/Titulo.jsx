@@ -9,8 +9,12 @@ const Titulo = () => {
 
 const Titulo2 = ({ alumno, matricula, color }) => {
     console.log(alumno);
+    var apellido = "Meléndez";
     return (
-        <h1 className='saludo' style={{ color: color }}>Hola {alumno} - {matricula}</h1>
+        <>
+            <h1 className='saludo' style={{ color: color }}>Hola {alumno} - {matricula}</h1>
+            {apellido && <p>Tu apellido es: {apellido}</p>}
+        </>
     );
 };
 
