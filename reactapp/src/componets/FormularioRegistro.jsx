@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState }  from 'react'
 import Boton from '../estilos/boton';
+import { Button } from 'bootstrap';
 
-const FormilarioLogin = (props) => {
+const FormilarioRegistro = (props) => {
 
     const [user, setUser] = useState("");
+    const [mail, setMail] = useState("");
     const [password, setPassword] = useState("");
 
     const onChange = (e) => {
         console.log(e.target.value);
         if (e.target.name === "user") {
             setUser(e.target.value);
+        } else if (e.target.name === "mail") {
+            setMail(e.target.value);
         } else if (e.target.name === "password") {
             setPassword(e.target.value);
         }
@@ -17,32 +21,39 @@ const FormilarioLogin = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if (user === "abr" && password === "123") {
-            //alert("Correcto");
-            props.cambiarSesion(true);
-        } else {
-            //alert("Incorrecto");
-            setUser("");
-            setPassword("");
-        }
+        props.cambiarSesion(true);
+        //console.log(props.cambiarSesion().value);
     };
-    const onRegistro = () => {
-        props.mostrarRegistro(true);
+
+    const onIniciarSesion = () => {
+        props.mostrarRegistro(false);
     };
 
     return (
         <div className="container mt-4">
-            <h3>Inicio de sesión</h3>
+            <h3>Registro</h3>
             <p>Usuario: {user}</p>
+            <p>Mail: {mail}</p>
             <p>Contraseña: {password}</p>
+            
             <form onSubmit={onSubmit}>
                 <div>
-                    <label htmlFor="user">Usuario</label>
+                    <span id="basic-addon1">Usuario</span>
                     <input
                         type="text"
                         name='user'
-                        id='user'
+                        id='userRegistro'
                         value={user}
+                        onChange={onChange}
+                    />
+                </div>
+                <div>
+                    <span id="basic-addon1">Correo</span>
+                    <input
+                        type="text"
+                        name='mail'
+                        id='mailRegistro'
+                        value={mail}
                         onChange={onChange}
                     />
                 </div>
@@ -51,16 +62,16 @@ const FormilarioLogin = (props) => {
                     <input
                         type="password"
                         name='password'
-                        id='password'
+                        id='passwordRegistro'
                         value={password}
                         onChange={onChange}
                     />
                 </div>
-                <Boton type=''>Iniciar sesion</Boton>
+                <Boton verde type=''>Registrarse</Boton>
             </form>
-            <Boton verde onClick={onRegistro}>Registrarse</Boton>
+            <Boton onClick={onIniciarSesion} type=''>Iniciar Sesión</Boton>
         </div>
     );
 }
 
-export default FormilarioLogin;
+export default FormilarioRegistro;
